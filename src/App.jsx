@@ -42,8 +42,8 @@ function App() {
   });
 
   return (
-    <div style={{ backgroundImage: {bg}, backgroundSize: 'cover', padding: '20px' }}>
-      <h1>Weather Data</h1>
+    <div style={{ backgroundColor: '#242424', padding: '20px', border: '2px solid #444', borderRadius: '10px' }}>
+      <h1 style={{ color: '#fff', textAlign: 'center' }}>Weather Data</h1>
       <WeatherFilter filter={filter} handleFilterChange={handleFilterChange} />
       <WeatherList filteredData={filteredData} />
       <WeatherSummary minTemp={minTemp} maxTemp={maxTemp} />
