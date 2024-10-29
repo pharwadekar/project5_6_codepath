@@ -4,7 +4,12 @@ import WeatherFilter from './components/WeatherFilter';
 import WeatherList from './components/WeatherList';
 import WeatherSummary from './components/WeatherSummary';
 import bg from './assets/bg.jpg';
-const API_KEY = '08225264cb1a4c1ba3661632242210'; // Replace with your valid WeatherAPI key
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import DetailView from './components/DetailView';
+
+
+const API_KEY = '0f4668c3a79a44579a065231242210'; // Replace with your valid WeatherAPI key
 
 function App() {
   const [weatherData, setWeatherData] = useState([]);
@@ -47,6 +52,12 @@ function App() {
       <WeatherFilter filter={filter} handleFilterChange={handleFilterChange} />
       <WeatherList filteredData={filteredData} />
       <WeatherSummary minTemp={minTemp} maxTemp={maxTemp} />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Dashboard data={filteredData} />} />
+          <Route path="/detail/:date" element={<DetailView data={weatherData} />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
